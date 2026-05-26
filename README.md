@@ -3,8 +3,8 @@
 <p align="center">
   <img src="movement.png" width="48%" alt="Movement Code" />
   <img src="animation.png" width="48%" alt="Animation Code" />
-  <img src="score.png" width="48%" alt="Score Code" />
-  <img src="gameover.png" width="48%" alt="Game Over Code" />
+  <img src="buildcode.png" width="48%" alt="buildCode" />
+  <img src="gamemap.png" width="48%" alt="Game map" />
 </p>
 
 Welcome to your first real coding lesson! This project is a simple, fully playable 2D game built in Scratch. It was designed from the ground up to teach the fundamental building blocks of computer science in a fun, visual, and interactive way.

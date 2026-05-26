@@ -1,53 +1,50 @@
-# Scratch Learning Project | An Intro to Game Programming
+# Scratch Logic Project | Intro to Game Programming
 
 <p align="center">
   <img src="movement.png" width="48%" alt="Movement Code" />
   <img src="animation.png" width="48%" alt="Animation Code" />
-  <img src="buildcode.png" width="48%" alt="buildCode" />
-  <img src="gamemap.png" width="48%" alt="Game map" />
+  <img src="buildcode.png" width="48%" alt="Build Code" />
+  <img src="gamemap.png" width="48%" alt="Game Map" />
 </p>
 
-Welcome to your first real coding lesson! This project is a simple, fully playable 2D game built in Scratch. It was designed from the ground up to teach the fundamental building blocks of computer science in a fun, visual, and interactive way.
+A fully playable 2D evasion game built in Scratch. This project was developed to demonstrate the fundamental building blocks of computer science in a visual, interactive format, translating core logic used in professional software engineering into accessible block-based code.
 
-By building this game, we are learning the exact same concepts that professional software engineers use to build mobile apps, websites, and 3D video games.
+## 📚 Core Coding Concepts
 
-## 📚 Core Coding Concepts Learned
+The game's architecture is broken down into four foundational programming concepts:
 
-This game is broken down into four major "Lessons." Here is what the code behind the scenes is actually doing:
+### 1. The X/Y Coordinate Grid (Player Movement)
+Moving the character requires interacting with a 2D mathematical grid.
+* **The Code:** Built using `When [Key] Pressed` event listener blocks.
+* **The Concept:** Pressing the **Up Arrow** increases the `Y` value (moving up), and the **Down Arrow** decreases `Y`. The **Right Arrow** increases the `X` value, and the **Left Arrow** decreases `X`. Modifying the `change x by 10` block to a higher number directly increases the entity's speed.
 
-### Lesson 1: The X/Y Coordinate Grid (Player Movement)
-To move our character, we have to understand the mathematical grid. 
-* **The Code:** We use `When [Key] Pressed` event blocks. 
-* **The Concept:** The screen is a giant invisible graph. Pressing the **Up Arrow** increases the `Y` value (moving up), and the **Down Arrow** decreases `Y`. The **Right Arrow** increases the `X` value, and the **Left Arrow** decreases `X`. 
-* **Teacher's Challenge:** Try changing the `change x by 10` block to `change x by 50`. What happens to the character? *(Answer: They move much faster!)*
+### 2. The `Forever` Loop (Animation)
+Sprite animation is handled through continuous frame swapping.
+* **The Code:** A `Next Costume` block nested inside a `Forever` loop, buffered by a `Wait 0.2 secs` delay.
+* **The Concept:** Instead of manually coding each visual frame, the loop tells the computer to continuously iterate through the sprite's image states. The 0.2-second delay acts as a basic "Frame Rate" limiter.
 
-### Lesson 2: The `Forever` Loop (Animation)
-How do we make the character look like they are actually flying or walking instead of just sliding across the screen?
-* **The Code:** We put a `Next Costume` block inside a `Forever` loop, with a `Wait 0.2 secs` delay.
-* **The Concept:** This is called a **Loop**. Instead of writing the code 1,000 times to flap the wings, the loop tells the computer to continuously swap pictures (costumes) over and over until the game ends. The 0.2-second delay is our "Frame Rate"—it stops the wings from flapping too fast!
+### 3. Variables (State Management)
+The game utilizes system memory to track the player's performance over time.
+* **The Code:** `Set [Score] to 0` on initialization, followed by `change [Score] by 1` triggered by a persistent time event.
+* **The Concept:** A variable acts as a dedicated memory container. Every second, the system retrieves the current integer in the "Score" container, increments it by 1, and updates the UI display.
 
-### Lesson 3: Variables (Keeping Score)
-A game needs a way to remember how well you are doing. We do this using computer memory.
-* **The Code:** `Set [Score] to 0` at the start, then `change [Score] by 1` every second.
-* **The Concept:** This is a **Variable**. Think of a variable as a digital box with a name on it. We named our box "Score". Every second, the computer opens the box, takes out the old number, adds 1 to it, and puts the new number back in the box. 
-
-### Lesson 4: Event Broadcasting (The "Game Over" Screen)
-When our character hits an obstacle, how does the background know it is time to change to the "Lose" screen?
+### 4. Event Broadcasting (Game State Triggers)
+Collision detection triggers a global state change to end the game.
 * **The Code:** `When I receive [lose]` -> `Switch backdrop to [lose]` -> `Stop [all]`.
-* **The Concept:** Sprites in Scratch need a way to talk to each other. This is called **Event Messaging**. When the player hits a bad guy, the player sprite shouts a secret message ("lose!") across the whole program. The background hears this message and instantly changes the picture, and the game stops all running loops.
+* **The Concept:** Sprites utilize Event Messaging to communicate asynchronously. When a collision occurs, the player sprite broadcasts a global "lose" message. The background environment listens for this event, updates the scene, and halts all active execution threads.
 
 ---
 
-## 🎮 How to Play
+## 🎮 Execution & Controls
 
-1. Click the **Green Flag** to start the game.
-2. Use the **Arrow Keys** (⬆️ ⬇️ ⬅️ ➡️) on your keyboard to navigate the character.
-3. Dodge the falling obstacles!
-4. Survive as long as you can to increase your **Score**.
-5. If you touch an obstacle, it's Game Over! Press the Green Flag to try again.
+1. Click the **Green Flag** to initialize the runtime.
+2. Use the **Arrow Keys** (⬆️ ⬇️ ⬅️ ➡️) to navigate the player entity.
+3. Dodge the falling obstacles.
+4. Survive to continuously increment the **Score** variable.
+5. Collision results in a Game Over state. Press the Green Flag to re-initialize the loop.
 
-## 🛠️ Homework for the Student
+## 🛠️ Modding & Customization
 
-Want to make the game your own? Open the code and try changing these things:
-* **Make it harder:** Find the `Wait 1 secs` block in the obstacle code and change it to `0.5 secs`. Now the enemies will spawn twice as fast!
-* **Change the character:** Go to the "Costumes" tab and draw a hat on your character, or pick a completely new animal to play as.
+The codebase is designed to be easily modified. Try altering these parameters:
+* **Difficulty Scaling:** Locate the `Wait 1 secs` block in the obstacle spawn script and reduce it to `0.5 secs` to double the enemy spawn rate.
+* **Asset Replacement:** Navigate to the "Costumes" tab to manually edit the player sprite or replace it entirely with a new graphical asset.
